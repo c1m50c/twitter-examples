@@ -1,12 +1,14 @@
-#[inline]
-pub const fn rotate_right(x: u32, n: u32) -> u32 { (x >> n) | (x << u32::BITS - n) }
+fn main() {
+    let option = None.unwrap_or_else(|| {
+        3.0 + 0.14
+    });
 
-fn use_rotr() {
-    let one_rotr: u32 = rotate_right(1, 3);
+    assert_eq!(option, 3.14);
 
-    // When compiled the expression that defines `one_rotr` will look like...
-
-    let one_rotr: u32 = (1 >> 3) | (1 << u32::BITS - 3);
+    let result = "13.37".parse::<f64>()
+        .unwrap_or_else(|err| {
+            panic!("{:?}: Cannot parse number into a floating-point number.", err)
+        });
+    
+    assert_eq!(result, 13.37);
 }
-
-fn main() {  }
